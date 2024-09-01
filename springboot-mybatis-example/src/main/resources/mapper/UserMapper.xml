@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.corbin.examples.mybatis.mapper.UserMapper">
+    <resultMap id="userMap" type="com.corbin.examples.mybatis.entity.User">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="deleted" />
+    </resultMap>
+
+    <select id="findById" parameterType="map" resultMap="userMap">
+    select
+        id,
+        name,
+        age,
+        status,
+        create_time,
+        update_time,
+        is_deleted
+    from user
+    where id = #{userId}
+    </select>
+</mapper>
