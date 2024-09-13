@@ -12,6 +12,15 @@
         <result column="is_deleted" property="deleted" />
     </resultMap>
 
+    <insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="id" parameterType="com.corbin.examples.mybatis.entity.User">
+        insert into user(
+            name,
+            age,
+            status
+        )
+        values(#{name},#{age},#{status})
+    </insert>
+
     <select id="findById" parameterType="map" resultMap="userMap">
     select
         id,
